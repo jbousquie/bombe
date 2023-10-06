@@ -58,7 +58,7 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       body: Center(child: buildContent()),
       floatingActionButton: buildButton(),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+      floatingActionButtonLocation: FloatingActionButtonLocation.endTop,
     );
   }
 
@@ -101,11 +101,9 @@ class _MyHomePageState extends State<MyHomePage> {
         future: _futurePointage,
         builder: (context, snapshot) {
           if (snapshot.hasData && _answered) {
-            return Text('${snapshot.data}',
-                style: const TextStyle(fontSize: 24));
+            return Text('${snapshot.data}', style: const TextStyle(fontSize: 24));
           } else if (snapshot.hasError) {
-            return Text('${snapshot.error}',
-                style: const TextStyle(fontSize: 24));
+            return Text('${snapshot.error}', style: const TextStyle(fontSize: 24));
           }
           return const CircularProgressIndicator();
         });
